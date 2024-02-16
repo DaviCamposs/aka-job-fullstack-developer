@@ -5,11 +5,15 @@ export class User {
   _password: string;
 
   constructor(name: string, email: string, password: string, id?: number) {
-    if (id) this._id;
+    if (id) this._id = id
     
     this._name = name;
     this._email = email;
     this._password = password;
+  }
+
+  get id(): number {
+    return this._id
   }
 
   get name(): string {
