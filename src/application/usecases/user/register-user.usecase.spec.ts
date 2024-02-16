@@ -12,11 +12,13 @@ interface SutTypes {
 
 const makeSut = (): SutTypes => {
     const userService: IUserService = {
-        createUser: jest.fn()
+        createUser: jest.fn(),
+        authenticate: jest.fn()
     }
 
     const userRepository: IUserRepository = {
-        save: jest.fn()
+        save: jest.fn(),
+        findByEmail: jest.fn()
     }
 
     const sut: IRegisterUserUseCase = new RegisterUserUseCaseImpl(userService,userRepository)
