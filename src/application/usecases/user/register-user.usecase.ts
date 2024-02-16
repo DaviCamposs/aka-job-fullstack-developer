@@ -9,7 +9,7 @@ export class RegisterUserUseCaseImpl implements IRegisterUserUseCase {
   ) {}
 
   async execute(name: string, email: string, password: string): Promise<void> {
-    const user = this._userService.createUser(name, email, password);
+    const user = await this._userService.createUser(name, email, password);
 
     await this._userRepository.save(user);
   }

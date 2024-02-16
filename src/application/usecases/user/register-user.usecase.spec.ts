@@ -35,7 +35,7 @@ describe('RegisterUserUseCaseImpl unit tests', () => {
         // Arrange
         const { userService , userRepository , sut } = makeSut()
 
-        const userServiceSpy = jest.spyOn(userService,'createUser').mockReturnValue(new User('David','david@mail.com','encryptedPassword'))
+        const userServiceSpy = jest.spyOn(userService,'createUser').mockResolvedValue(new User('David','david@mail.com','encryptedPassword'))
         const userRepositorySpy = jest.spyOn(userRepository,'save')
 
         // Act
