@@ -4,6 +4,7 @@
   "description": "<h1 align=\"center\">   <img src=\"./assets/aka.svg\" alt=\"AKA\" width=\"120\"> </h1> <p align=\"center\">AKASOFT FULL STACK DEVELOPER</p> <p align=\"center\">",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon server.ts",
     "test": "jest"
   },
   "keywords": [],
