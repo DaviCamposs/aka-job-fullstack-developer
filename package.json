@@ -1,0 +1,23 @@
+{
+  "name": "aka-job-fullstack-developer",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">   <img src=\"./assets/aka.svg\" alt=\"AKA\" width=\"120\"> </h1> <p align=\"center\">AKASOFT FULL STACK DEVELOPER</p> <p align=\"center\">",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.7.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.19",
+    "nodemon": "^3.0.3",
+    "ts-jest": "^29.1.2"
+  }
+}
