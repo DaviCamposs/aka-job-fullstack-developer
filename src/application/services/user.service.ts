@@ -1,5 +1,5 @@
 import { User } from "../../domain/entities";
-import { DomainError } from "../../domain/errors";
+import { DomainError, InvalidCredentialsError } from "../../domain/errors";
 import { IEncryptionService, IUserService } from "../../domain/services";
 
 const MINIMUM_LENGTH_NAME = 2;
@@ -7,6 +7,16 @@ const MINIMUM_LENGTH_PASSWORD = 8;
 
 export class UserServiceImpl implements IUserService {
   constructor(private readonly _encryptionService: IEncryptionService) {}
+
+  authenticate(user: User, input: string): void {
+    const isCredentialsValid = this._encryptionService.compareValues(
+      user.password,
+      input
+    );
+
+    if (!isCredentialsValid)
+      throw new InvalidCredentialsError("Invalid Credentials");
+  }
 
   createUser(name: string, email: string, password: string): User {
     if (name.length < MINIMUM_LENGTH_NAME)

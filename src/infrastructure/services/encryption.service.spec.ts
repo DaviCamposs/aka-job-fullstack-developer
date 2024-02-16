@@ -17,4 +17,18 @@ describe("EncryptionServiceImpl unit tests", () => {
     // Assert
     expect(result).toBe("hashedValue");
   });
+
+  it("should compare value when called", () => {
+    // Arrange
+    const sut = new EncryptionServiceImpl();
+    (
+      bcrypt.compareSync as jest.MockedFunction<typeof bcrypt.compareSync>
+    ).mockReturnValue(true);
+
+    // Act
+    const result = sut.compareValues("value", "encrypted");
+
+    // Assert
+    expect(result).toBeTruthy();
+  });
 });
