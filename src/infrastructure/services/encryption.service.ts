@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import { IEncryptionService } from "../../domain/services";
 
 export class EncryptionServiceImpl implements IEncryptionService {
-  compareValues(value: string, encryptedValue: string): boolean {
+  compareValues(encryptedValue: string, value: string): boolean {
     return bcrypt.compareSync(value, encryptedValue);
   }
   encrypt(value: string): string {
