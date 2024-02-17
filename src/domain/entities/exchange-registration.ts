@@ -1,11 +1,13 @@
 export class ExchangeRegistration {
   _id!: number;
+  _acronym: string
   _code_source: string;
   _code_destination: string;
   _value: number;
   _date: string;
 
   constructor(
+    acronym: string,
     code_source: string,
     code_destination: string,
     value: number,
@@ -14,6 +16,7 @@ export class ExchangeRegistration {
   ) {
     if (id) this._id = id;
 
+    this._acronym = acronym
     this._code_source = code_source;
     this._code_destination = code_destination;
     this._value = value;
@@ -22,6 +25,10 @@ export class ExchangeRegistration {
 
   get id(): number {
     return this._id
+  }
+
+  get acronym(): string {
+    return this._acronym
   }
 
   get code_source(): string {

@@ -18,6 +18,7 @@ model User {
 
 model ExchangeRegistration {
     id                Int      @id @default(autoincrement())
+    acronym           String
     code_source       String  
     code_destination  String  
     value             Float

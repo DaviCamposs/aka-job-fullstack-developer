@@ -15,7 +15,7 @@ export class ExchangeRegistrationAPIMapper
       const item = data[key];
 
       result.push(
-        new ExchangeRegistration(item.code, item.codein, Number(item.bid), null)
+        new ExchangeRegistration(`${item.code}-${item.codein}`,item.code, item.codein, Number(item.bid), null)
       );
     }
 

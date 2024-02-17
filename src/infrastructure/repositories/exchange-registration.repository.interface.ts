@@ -9,6 +9,7 @@ export class ExchangeRegistrationRepositoryImpl
     await prisma.exchangeRegistration.createMany({
       data: data.map((item) => {
         return {
+          acronym: item.acronym,
           code_source: item.code_source,
           code_destination: item.code_destination,
           value: item.value,

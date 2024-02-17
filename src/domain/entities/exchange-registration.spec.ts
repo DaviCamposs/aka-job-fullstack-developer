@@ -4,6 +4,7 @@ describe("ExchangeRegistration unit test", () => {
   it("should create a exchangeRegistration with correct values", () => {
     // Act
     const exchangeRegistration = new ExchangeRegistration(
+      "source-destination",
       "source",
       "destination",
       100,
@@ -13,6 +14,7 @@ describe("ExchangeRegistration unit test", () => {
 
     // Assert
     expect(exchangeRegistration.id).toBe(1);
+    expect(exchangeRegistration.acronym).toBe("source-destination");
     expect(exchangeRegistration.code_source).toBe("source");
     expect(exchangeRegistration.code_destination).toBe("destination");
     expect(exchangeRegistration.value).toBe(100);

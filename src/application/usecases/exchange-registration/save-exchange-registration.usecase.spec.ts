@@ -35,8 +35,8 @@ describe('SaveExchangeRegistrationUseCaseImpl unit tests', () => {
             exchangeRegistrationRepository, exchangeRegistrationService, sut
         } = makeSut()
         const exchangeRegistrations = [
-            new ExchangeRegistration('BRL','USD',100 , 'date'),
-            new ExchangeRegistration('EUR','JPY',50 , 'date 2')
+            new ExchangeRegistration('BRL-USD','BRL','USD',100 , 'date'),
+            new ExchangeRegistration('BRL-USD','EUR','JPY',50 , 'date 2')
 
         ]
 
