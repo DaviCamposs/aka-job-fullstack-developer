@@ -2,6 +2,7 @@ import { ExchangeRegistration } from "../../domain/entities";
 import { OperationalError } from "../../domain/errors";
 import { IHttpClientProvider } from "../../domain/providers";
 import { IExchangeRegistrationService } from "../../domain/services";
+import { IExchangeRegistrationStatisticsByHour } from "../../domain/services/@types";
 import { ExchangeRegistrationServiceImpl } from "./exchange-registration.service";
 
 interface SutTypes {
@@ -142,12 +143,16 @@ describe("ExchangeRegistrationServiceImpl unit tests", () => {
         {
           data: [
             {
+              code_source: 'USD',
+              code_destination: 'BRL',
               acronym: "USD-BRL",
               average: 55,
               max: 90,
               min: 20,
             },
             {
+              code_source: 'USD',
+              code_destination: 'EUR',
               acronym: "USD-EUR",
               average: 1,
               max: 1,
@@ -159,6 +164,8 @@ describe("ExchangeRegistrationServiceImpl unit tests", () => {
         {
           data: [
             {
+              code_source: 'BRL',
+              code_destination: 'EUR',
               acronym: "BRL-EUR",
               average: 40,
               max: 40,
@@ -187,16 +194,20 @@ describe("ExchangeRegistrationServiceImpl unit tests", () => {
       // Arrange
       const { sut } = makeSut();
 
-      const input = [
+      const input: IExchangeRegistrationStatisticsByHour[] = [
         {
           data: [
             {
+              code_source: 'USD',
+              code_destination: 'BRL',
               acronym: "USD-BRL",
               average: 55,
               max: 90,
               min: 20,
             },
             {
+              code_source: 'USD',
+              code_destination: 'EUR',
               acronym: "USD-EUR",
               average: 100,
               max: 50,
@@ -208,6 +219,8 @@ describe("ExchangeRegistrationServiceImpl unit tests", () => {
         {
           data: [
             {
+              code_source: 'USD',
+              code_destination: 'BRL',
               acronym: "USD-BRL",
               average: 45,
               max: 80,
@@ -219,6 +232,8 @@ describe("ExchangeRegistrationServiceImpl unit tests", () => {
         {
           data: [
             {
+              code_source: 'BRL',
+              code_destination: 'EUR',
               acronym: "BRL-EUR",
               average: 40,
               max: 40,
@@ -237,12 +252,16 @@ describe("ExchangeRegistrationServiceImpl unit tests", () => {
         {
           data: [
             {
+              code_source: 'USD',
+              code_destination: 'BRL',
               acronym: "USD-BRL",
               average: 50,
               max: 90,
               min: 20,
             },
             {
+              code_source: 'USD',
+              code_destination: 'EUR',
               acronym: "USD-EUR",
               average: 100,
               max: 50,
@@ -254,6 +273,8 @@ describe("ExchangeRegistrationServiceImpl unit tests", () => {
         {
           data: [
             {
+              code_source: 'BRL',
+              code_destination: 'EUR',
               acronym: "BRL-EUR",
               average: 40,
               max: 40,
@@ -269,16 +290,20 @@ describe("ExchangeRegistrationServiceImpl unit tests", () => {
       // Arrange
       const { sut } = makeSut();
 
-      const input = [
+      const input: IExchangeRegistrationStatisticsByHour[] = [
         {
           data: [
             {
+              code_source: 'USD',
+              code_destination: 'BRL',
               acronym: "USD-BRL",
               average: 55,
               max: 90,
               min: 20,
             },
             {
+              code_source: 'USD',
+              code_destination: 'EUR',
               acronym: "USD-EUR",
               average: 100,
               max: 50,
@@ -290,6 +315,8 @@ describe("ExchangeRegistrationServiceImpl unit tests", () => {
         {
           data: [
             {
+              code_source:  'USD',
+              code_destination: 'BRL',
               acronym: "USD-BRL",
               average: 45,
               max: 80,
@@ -301,6 +328,8 @@ describe("ExchangeRegistrationServiceImpl unit tests", () => {
         {
           data: [
             {
+              code_source:  'BRL',
+              code_destination:  'EUR',
               acronym: "BRL-EUR",
               average: 40,
               max: 40,
@@ -311,7 +340,9 @@ describe("ExchangeRegistrationServiceImpl unit tests", () => {
         },
         {
           data: [
-            {
+            { 
+              code_source: 'USD',
+              code_destination: 'BRL',
               acronym: "USD-BRL",
               average: 30,
               max: 50,
@@ -330,12 +361,16 @@ describe("ExchangeRegistrationServiceImpl unit tests", () => {
         {
           data: [
             {
+              code_source: 'USD',
+              code_destination: 'BRL',
               acronym: "USD-BRL",
               average: 50,
               max: 90,
               min: 20,
             },
             {
+              code_source: 'USD',
+              code_destination: 'EUR',
               acronym: "USD-EUR",
               average: 100,
               max: 50,
@@ -347,6 +382,8 @@ describe("ExchangeRegistrationServiceImpl unit tests", () => {
         {
           data: [
             {
+              code_source: 'BRL',
+              code_destination: 'EUR',
               acronym: "BRL-EUR",
               average: 40,
               max: 40,
@@ -358,6 +395,8 @@ describe("ExchangeRegistrationServiceImpl unit tests", () => {
         {
           data: [
             {
+              code_source: 'USD',
+              code_destination: 'BRL',
               acronym: "USD-BRL",
               average: 30,
               max: 50,

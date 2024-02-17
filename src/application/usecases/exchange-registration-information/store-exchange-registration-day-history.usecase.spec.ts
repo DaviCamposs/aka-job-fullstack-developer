@@ -80,7 +80,7 @@ describe("StoreExchangeRegistrationDayHistoryUseCaseImpl unit tests", () => {
     expect(convertExchangeRegistrationToDayCacheSpy).toHaveBeenCalledTimes(1);
     expect(convertExchangeRegistrationToDayCacheSpy).toHaveBeenCalledWith([
       {
-        
+        day: "day 1",
         data: [],
       },
     ]);
