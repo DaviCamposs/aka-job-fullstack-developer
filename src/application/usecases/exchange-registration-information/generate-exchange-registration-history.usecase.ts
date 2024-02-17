@@ -39,6 +39,8 @@ export class GenerateExchangeRegistrationHistoryUseCaseImpl
     const groupedByDay =
       this._exchangeRegistrationService.calculateStatisticsByDay(groupedByHour);
 
+    
+
     // TODO: Save in cache
 
     return day !== undefined ? groupedByHour : groupedByDay;
