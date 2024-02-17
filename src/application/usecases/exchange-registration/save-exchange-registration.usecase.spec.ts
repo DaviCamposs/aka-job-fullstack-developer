@@ -12,11 +12,14 @@ interface SutTypes {
 
 const makeSut = (): SutTypes => {
     const exchangeRegistrationService: IExchangeRegistrationService = {
-        retrieveExchangeValues: jest.fn()
+        retrieveExchangeValues: jest.fn(),
+        calculateStatisticsByDay: jest.fn(),
+        calculateStatisticsByHour: jest.fn()
     }
 
     const exchangeRegistrationRepository: IExchangeRegistrationRepository = {
-        save: jest.fn()
+        save: jest.fn(),
+        find: jest.fn()
     }
 
     const sut: ISaveExchangeRegistrationUseCase = new SaveExchangeRegistrationUseCaseImpl(exchangeRegistrationService,exchangeRegistrationRepository)
