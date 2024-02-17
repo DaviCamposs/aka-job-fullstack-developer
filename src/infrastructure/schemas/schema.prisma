@@ -14,4 +14,14 @@ model User {
     password  String
 
      @@map("users")
-  }
+}
+
+model ExchangeRegistration {
+    id                Int      @id @default(autoincrement())
+    code_source       String  
+    code_destination  String  
+    value             Float
+    date              String
+
+  @@map("exchangeregistration")
+}
