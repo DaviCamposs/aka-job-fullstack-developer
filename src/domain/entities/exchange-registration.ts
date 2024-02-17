@@ -9,7 +9,7 @@ export class ExchangeRegistration {
     code_source: string,
     code_destination: string,
     value: number,
-    date: string,
+    date: string | null,
     id?: number
   ) {
     if (id) this._id = id;
@@ -17,7 +17,7 @@ export class ExchangeRegistration {
     this._code_source = code_source;
     this._code_destination = code_destination;
     this._value = value;
-    this._date = date;
+    this._date = date || new Date().toISOString()
   }
 
   get id(): number {
