@@ -8,6 +8,8 @@ import { ExchangeRegistrationAPIMapper } from "./mappers/exchange-registration.m
 const URL_RETRIEVE_EXCHANGE = "https://economia.awesomeapi.com.br/last/";
 
 interface IExchangeRegistrationStatisticsControl {
+  code_source: string
+  code_destination: string
   acronym: string;
   average: number;
   min: number;
@@ -45,7 +47,7 @@ export class ExchangeRegistrationServiceImpl
         const groupedByAcronym: { [acronym: string]: IExchangeRegistrationStatistics } = {};
         for (const stat of dayEntry.data) {
             if (!groupedByAcronym[stat.acronym]) {
-                groupedByAcronym[stat.acronym] = { acronym: stat.acronym, average: 0, min: stat.min, max: stat.max };
+                groupedByAcronym[stat.acronym] = { code_source: stat.code_source , code_destination: stat.code_destination,  acronym: stat.acronym, average: 0, min: stat.min, max: stat.max };
             } else {
                 groupedByAcronym[stat.acronym].min = Math.min(groupedByAcronym[stat.acronym].min, stat.min);
                 groupedByAcronym[stat.acronym].max = Math.max(groupedByAcronym[stat.acronym].max, stat.max);
@@ -79,6 +81,8 @@ export class ExchangeRegistrationServiceImpl
 
         if (!existingStats) {
             groupedData[hour].push({
+              code_source: item.code_source,
+              code_destination: item.code_destination,
                 acronym: item.acronym,
                 average: value,
                 min: value,
@@ -98,10 +102,12 @@ export class ExchangeRegistrationServiceImpl
     for (const hour in groupedData) {
         result.push({ hour, data: groupedData[hour].map(item => {
           return {
+            code_source: item.code_source,
+            code_destination:item.code_destination,
             acronym: item.acronym,
             average: item.average,
             max: item.max,
-            min: item.min
+            min: item.min,
           }
         }) });
     }
