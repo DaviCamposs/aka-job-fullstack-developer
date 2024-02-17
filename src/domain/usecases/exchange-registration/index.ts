@@ -1,0 +1,1 @@
+export * from './save-exchange-registration.usecase.interface'
