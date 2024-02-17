@@ -9,6 +9,8 @@ export interface ExchangeRegistrationAPIResponse {
 }
 
 export interface IExchangeRegistrationStatistics {
+  code_source: string
+  code_destination: string
   acronym: string;
   average: number;
   min: number;

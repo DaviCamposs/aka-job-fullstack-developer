@@ -26,3 +26,20 @@ model ExchangeRegistration {
 
   @@map("exchangeregistration")
 }
+
+model ExchangeRegistrationCache {
+    id                Int      @id @default(autoincrement())
+    acronym           String
+    code_source       String  
+    code_destination  String  
+    max               Float
+    min               Float
+    avg               Float
+    day               String 
+    month             String 
+    year              String
+    date              String
+    type_register     String 
+
+  @@map("exchangeregistrationcache")
+}
