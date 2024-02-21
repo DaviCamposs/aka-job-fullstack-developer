@@ -1,4 +1,4 @@
-import { DomainError } from "../../domain/errors";
+import { DomainError, InvalidCredentialsError } from "../../domain/errors";
 import { IHttpResponse } from "../protocols";
 
 export const handleRequestError = (error: unknown): IHttpResponse => {
@@ -7,6 +7,10 @@ export const handleRequestError = (error: unknown): IHttpResponse => {
     let statusCode = 500;
 
     if (error instanceof DomainError) {
+      statusCode = 400;
+    }
+
+    if (error instanceof InvalidCredentialsError) {
       statusCode = 401;
     }
 

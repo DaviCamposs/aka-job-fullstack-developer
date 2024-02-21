@@ -1,9 +1,14 @@
 import Fastify from "fastify";
+import fastifyCors from '@fastify/cors';
 import authenticationRoutes from "./routes/authentication.routes";
 import exchangeRoutes from "./routes/exchange.routes";
 import cron from "node-cron";
 
 const app = Fastify();
+
+app.register(fastifyCors, {
+  origin: '*',
+});
 
 app.register(authenticationRoutes, { prefix: "/users" });
 app.register(exchangeRoutes, { prefix: "/exchange" });
