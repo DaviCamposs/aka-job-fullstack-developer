@@ -10,7 +10,7 @@ describe("HttpHelper unit tests", () => {
       );
 
       // Assert
-      expect(result.statusCode).toBe(401);
+      expect(result.statusCode).toBe(400);
       expect(result.body).toBe("The name must be valid");
     });
 

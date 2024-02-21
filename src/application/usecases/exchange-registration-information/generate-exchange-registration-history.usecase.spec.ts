@@ -1,12 +1,14 @@
 import { ExchangeRegistration } from "../../../domain/entities";
 import { IExchangeRegistrationRepository } from "../../../domain/repositories";
 import { IExchangeRegistrationService } from "../../../domain/services";
-import { IGenerateExchangeRegistrationHistoryUseCase } from "../../../domain/usecases";
+import { IGenerateExchangeRegistrationHistoryUseCase, IStoreExchangeRegistrationDayHistoryUseCase, IStoreExchangeRegistrationHourHistoryUseCase } from "../../../domain/usecases";
 import { GenerateExchangeRegistrationHistoryUseCaseImpl } from "./generate-exchange-registration-history.usecase";
 
 interface SutTypes {
   exchangeRegistrationHistoryRepository: IExchangeRegistrationRepository;
   exchangeRegistrationService: IExchangeRegistrationService;
+  storeExchangeRegistrationHourHistoryUseCase: IStoreExchangeRegistrationHourHistoryUseCase,
+  storeExchangeRegistrationDayHistoryUseCase: IStoreExchangeRegistrationDayHistoryUseCase,
   sut: IGenerateExchangeRegistrationHistoryUseCase;
 }
 
@@ -23,15 +25,27 @@ const makeSut = (): SutTypes => {
     retrieveExchangeValues: jest.fn(),
   };
 
+  const storeExchangeRegistrationHourHistoryUseCase: IStoreExchangeRegistrationHourHistoryUseCase = {
+    execute: jest.fn()
+  }
+
+  const storeExchangeRegistrationDayHistoryUseCase: IStoreExchangeRegistrationDayHistoryUseCase = {
+    execute: jest.fn()
+  }
+
   const sut: IGenerateExchangeRegistrationHistoryUseCase =
     new GenerateExchangeRegistrationHistoryUseCaseImpl(
       exchangeRegistrationHistoryRepository,
-      exchangeRegistrationService
+      exchangeRegistrationService,
+      storeExchangeRegistrationHourHistoryUseCase,
+      storeExchangeRegistrationDayHistoryUseCase,
     );
 
   return {
     exchangeRegistrationHistoryRepository,
     exchangeRegistrationService,
+    storeExchangeRegistrationHourHistoryUseCase,
+    storeExchangeRegistrationDayHistoryUseCase,
     sut,
   };
 };
