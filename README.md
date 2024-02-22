@@ -34,8 +34,10 @@ O projeto foi construído utilizado conceito de arquitetura limpa com DDD no qua
 
 ## Configuração
 - Defina as variavéis de ambiente no .env.example
+- Execute o comando `prisma generate --schema=./src/infrastructure/schemas/schema.prisma` para utilizar o prisma
 - execute `npm start` para rodar o prjeto, se tudo der certo, irá mostrar uma mensagem de êxito
 - Caso deseje executar os testes, execute `npm test`
+- OBS: O banco de dados utilizado foi o postgres local
 
 ## Acerca das dependências
 - Fastify: Gerenciar rotas, parâmetros
